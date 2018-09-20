@@ -1,0 +1,7 @@
+.Tilt {
+  background: linear-gradient(to right, rgb(17, 210, 215), rgb(69, 42, 136));
+}
+
+.logo {
+    transform: rotate(90deg);
+}

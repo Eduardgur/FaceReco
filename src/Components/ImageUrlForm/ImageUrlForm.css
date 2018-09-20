@@ -1,0 +1,20 @@
+.url {
+  background-color: rgb(17, 210, 215);
+  color: rgb(69, 42, 136);
+  padding: 4px;
+}
+
+.url::placeholder{
+  color: rgb(69, 42, 136);
+  padding: 4px;
+}
+
+.detectBtn{
+  background-color: rgb(69, 42, 136) ;
+  color: rgb(17, 210, 215);
+}
+
+.form {
+  width: 55rem;
+  height: 7rem;
+}

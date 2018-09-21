@@ -1,24 +1,12 @@
 import React, { Component } from 'react';
-import Navigation from './Components/Navigation/Navigation'
-import ImageUrlForm from './Components/ImageUrlForm/ImageUrlForm'
-import Rank from './Components/Rank/Rank'
-import FaceRecognition from './Components/FaceRecognition/FaceRecognition'
-
-import Particles from 'react-particles-js';
+import Navigation from '../../components/Navigation/Navigation'
+import SigninForm from '../../components/SigninForm/SigninForm.js'
+import SignupForm from '../../components/SignupForm/SignupForm.js'
+import ImageEngine from '../ImageEngine/ImageEngine.js'
 import Clarifai from 'clarifai';
 import './App.css';
 
-const particlesParam = {
-  "particles": {
-    "number": {
-      "value": 150,
-      "density": {
-        "enable": true,
-        "value_area": 700
-      }
-    }
-  }
-}
+
 
 class App extends Component {
 
@@ -29,6 +17,8 @@ class App extends Component {
       clarifi: null,
       image: "",
       boxs: [],
+      route: 'signin',
+      isSignedin: false,
     }
 
     this.onInputChange = this.onInputChange.bind(this);
@@ -87,14 +77,56 @@ class App extends Component {
         });
       }
 
+      onRouteChange = (route) => {
+        this.setState({route: route});
+        // route === 'home' ? this.setState({isSignedin: true}) : this.setState({isSignedin: false});
+      }
+
+      renderRoute = (route) => {
+        console.log('render: ', route);
+        switch (route) {
+          case 'home':
+          return (
+            <ImageEngine
+              onInputChange={ this.onInputChange }
+              onButtonSubmit={ this.onButtonSubmit }
+              image={ this.state.image }
+              boxs={ this.state.boxs }
+            />
+          )
+          break;
+
+          case 'signin':
+          return (
+            <SigninForm onRouteChange={ this.onRouteChange }/>
+          )
+          break;
+
+          case 'signup':
+          return (
+          <SignupForm onRouteChange={ this.onRouteChange }/>
+          )
+          break;
+
+          default:
+          return (
+            <SigninForm onRouteChange={ this.onRouteChange }/>
+          )
+        }
+      }
+
       render() {
         return (
-          <div className="App">
-            <Particles className='particales' params={particlesParam} />
-            <Navigation/>
-            <Rank/>
-            <ImageUrlForm onInputChange={ this.onInputChange } onButtonSubmit={ this.onButtonSubmit } />
-            <FaceRecognition image={ this.state.image } boxs={ this.state.boxs }/>
+          <div className="App ">
+
+            <Navigation
+              onRouteChange={ this.onRouteChange }
+              isSignedin={ this.state.isSignedin }
+              route={ this.state.route }
+            />
+            <div>
+              { this.renderRoute(this.state.route) }
+            </div>
           </div>
         );
       }

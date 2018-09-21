@@ -1,15 +1,17 @@
-.url {
-  background-color: rgb(17, 210, 215);
+.input {
+  background-color: rgba(17, 210, 215,.7);
   color: rgb(69, 42, 136);
+  padding: 4px;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+
+.input::placeholder{
+  color: rgba(69, 42, 136,.9);
   padding: 4px;
 }
 
-.url::placeholder{
-  color: rgb(69, 42, 136);
-  padding: 4px;
-}
-
-.detectBtn{
+.button-p{
   background-color: rgb(69, 42, 136) ;
   color: rgb(17, 210, 215);
 }

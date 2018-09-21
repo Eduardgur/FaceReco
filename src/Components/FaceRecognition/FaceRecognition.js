@@ -2,8 +2,8 @@ import React from 'react';
 import './FaceRecognition.css'
 const FaceRecognition = ({ image, boxs }) => {
   return (
-    <div className='center ma2'>
-      <div className="absolute mt2">
+    <div className='center ma2 '>
+      <div className='absolute mt2 gradient-background shadow-1'>
         <img id='inputimage' className='shadow-1' src={ image } width='600px' height='auto' />
         {
           boxs.map(box => {

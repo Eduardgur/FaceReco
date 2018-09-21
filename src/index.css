@@ -9,3 +9,8 @@ body {
 button {
   cursor: pointer;
 }
+
+.gradient-background{
+  background: linear-gradient(to left, rgba(17, 210, 215,.2), rgba(69, 42, 136,.7));
+
+}

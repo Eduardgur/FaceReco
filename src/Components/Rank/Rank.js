@@ -1,14 +1,15 @@
 import React from 'react';
 
 
-const Rank = () => {
+const Rank = (props) => {
+  const {name, enteries} = props.user;
   return (
     <div>
       <div className='white f3 pa2'>
-        {`Eduard, youre current rank is...`}
+        {`${name}, youre enteries number is:`}
       </div>
       <div className='white f2'>
-        {`#5`}
+        {`${enteries}`}
       </div>
     </div>
   );

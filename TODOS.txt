@@ -1,0 +1,14 @@
+signin\up form: 
+add next tab by enter
+add submit by enter 
+add wrong pass\user notification
+empty input verification  + mark
+password verification
+
+make a validation component
+
+add user avatar, profile page
+
+url validation
+
+add rank 

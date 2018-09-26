@@ -3,6 +3,7 @@ import Logo from '../Logo/Logo'
 
 const Navigation = (props) => {
 
+
   const renderRoute = (route) => {
     console.log('navi: ', route );
     switch (route) {
@@ -32,7 +33,7 @@ const Navigation = (props) => {
       return (
         <div className='self-end '>
           <p className='f4 link dim black underline mr3 pointer self-end'
-            onClick={() => props.onRouteChange('signin') }>
+            onClick={() => props.onSignout() }>
             Sign Out
           </p>
         </div>

@@ -5,10 +5,10 @@ import FaceRecognition from '../../components/FaceRecognition/FaceRecognition'
 
 
 const ImageEngine = (props) => {
-const { onInputChange, onButtonSubmit, image, boxs } = props;
+const { onInputChange, onButtonSubmit, image, boxs, user } = props;
   return (
     <div>
-      <Rank/>
+      <Rank user={ user } />
       <ImageUrlForm onInputChange={ onInputChange } onButtonSubmit={ onButtonSubmit } />
       <FaceRecognition image={ image } boxs={ boxs }/>
     </div>

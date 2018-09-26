@@ -1,10 +1,53 @@
 import React from 'react';
 import './SigninForm.css'
-const LoginForm = (props) => {
+class LoginForm extends React.Component {
+
+constructor(props) {
+  super(props);
+  this.state = {
+    signinEmail : '',
+    signinPassword: '',
+  }
+
+  this.onSubmitSignin = this.onSubmitSignin.bind(this);
+  this.onEmailChange = this.onEmailChange.bind(this);
+  this.onPaswwordChange = this.onPaswwordChange.bind(this);
+}
+
+onSubmitSignin = () => {
+  fetch('http://localhost:3001/signin', {
+    method: 'post',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: this.state.signinEmail,
+      password: this.state.signinPassword
+    })
+  }).then((res) => res.json())
+  .then(user => {
+    console.log('signin: ', user);
+    if (user) {
+      this.props.loadUser(user);
+      this.props.onRouteChange('home');
+    } else {
+      //add input validation
+      alert('Username or Password dont match')
+    }
+  })
+}
+
+onEmailChange = (event) => {
+  this.setState({signinEmail: event.target.value});
+}
+
+onPaswwordChange = (event) => {
+  this.setState({signinPassword: event.target.value});
+}
+
+render() {
   return (
-    <div >
+    <div>
       <div className='center '>
-        <form
+        <div
           className='gradient-background login-cont flex flex-column items-center justify-center absolute br3 shadow-1 pa3'>
           <legend
             className='f2 self-center underline '>
@@ -14,13 +57,15 @@ const LoginForm = (props) => {
             <label
               className='self-start mb2 '
               >
-               Email:
-             </label>
+              Email:
+            </label>
             <input
               className='self-start f5 input w5 h-auto shadow-2'
               id='emailadress'
               name='emailadress'
-              type='email' ></input>
+              type='email' 
+              onChange={this.onEmailChange}
+              required></input>
           </div>
           <div className='flex flex-column ma3'>
             <label
@@ -31,18 +76,21 @@ const LoginForm = (props) => {
               className='self-start f56 input w5 h-auto'
               id='password'
               name='password'
-              type='password' ></input>
+              type='password' 
+              onChange={this.onPaswwordChange}
+              required></input>
             </div>
             <input
               className='button-p ma3 grow f5 ph3 pv2 br3 shadow-5'
               id='signin'
               type='submit'
               value='Sign In'
-              onClick={() => props.onRouteChange('home')}/>
-            </form>
+              onClick={this.onSubmitSignin}
+              />
           </div>
         </div>
-      );
-    }
-
-    export default LoginForm;
+      </div> 
+    )
+  }
+}
+export default LoginForm;

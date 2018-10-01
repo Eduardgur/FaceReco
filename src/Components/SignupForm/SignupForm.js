@@ -17,7 +17,7 @@ constructor(props){
 }
 
 onSubmitSignup = () => {
-  console.log(this.state);
+  console.log('state: ',this.state);
   
   fetch('http://localhost:3001/signup', {
     method: 'post',
@@ -28,9 +28,17 @@ onSubmitSignup = () => {
       name: this.state.signupName,
     })
   }).then((res) => {
-    console.log(res);
+    console.log('res: ', res);
     if (res.status === 200) {
+      res.json().then(res => {
+        alert(res.response);
+      });
       this.props.onRouteChange('signin');
+    } else{
+      res.json().then(err => {
+        alert(err.err);
+      });
+      
     }
   })
 }

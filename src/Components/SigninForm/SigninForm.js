@@ -22,17 +22,20 @@ onSubmitSignin = () => {
       email: this.state.signinEmail,
       password: this.state.signinPassword
     })
-  }).then((res) => res.json())
-  .then(user => {
-    console.log('signin: ', user);
-    if (user) {
-      this.props.loadUser(user);
-      this.props.onRouteChange('home');
+  }).then((res) => {
+    if (res.status === 200) {
+      res.json().then(res => {
+        console.log('signin: ', res);
+          this.props.loadUser(res.user[0]);
+          this.props.onRouteChange('home');
+          alert(res.response);
+      });
     } else {
-      //add input validation
-      alert('Username or Password dont match')
+      res.json().then(res => {
+        alert(res.err);
+      });
     }
-  })
+  });
 }
 
 onEmailChange = (event) => {

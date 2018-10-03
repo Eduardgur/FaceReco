@@ -38,6 +38,7 @@ onSubmitSignup = () => {
       
     }
   })
+  .catch(err => console.log(err));
 }
 
 onEmailChange = (event) => {

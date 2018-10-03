@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Navigation from '../../components/Navigation/Navigation';
 import SigninForm from '../../components/SigninForm/SigninForm.js';
-import SignupForm from '../../components/SignupForm/SignupForm.js'
-import ImageEngine from '../ImageEngine/ImageEngine.js'
+import SignupForm from '../../components/SignupForm/SignupForm.js';
+import ImageEngine from '../ImageEngine/ImageEngine.js';
 import './App.css';
 
 class App extends Component {
@@ -29,8 +29,6 @@ constructor() {
   }
 
 loadUser = (user) => {
-  console.log(user);
-  console.log(user.id, user.name, user.email, user.enteries, user.joined);
   this.setState({
     user: {
       id: user.id,
@@ -61,9 +59,7 @@ getFaces = () => {
           })
         );
       }
-  }).catch(err => {
-    console.log(err);
-  })
+  }).catch(err => console.log(err));
 }
 
 calculateFaceLocation = (response) => {

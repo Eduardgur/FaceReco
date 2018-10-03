@@ -26,8 +26,6 @@ onSubmitSignin = () => {
   }).then((res) => {
     if (res.status === 200) {
       res.json().then(res => {
-        console.log(res.user);
-        
           this.props.loadUser(res.user);
           this.props.onRouteChange('home');
           alert(res.response);
@@ -37,7 +35,8 @@ onSubmitSignin = () => {
         alert(res.err);
       });
     }
-  });
+  })
+  .catch(err => console.log(err));
 }
 
 onEmailChange = (event) => {

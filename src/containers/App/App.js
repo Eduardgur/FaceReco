@@ -5,8 +5,6 @@ import SignupForm from '../../components/SignupForm/SignupForm.js'
 import ImageEngine from '../ImageEngine/ImageEngine.js'
 import './App.css';
 
-
-
 class App extends Component {
 
 constructor() {
@@ -45,7 +43,7 @@ loadUser = (user) => {
 }
 
 getFaces = () => {
-  fetch('http://localhost:3001/getFaces', {
+  fetch('https://myfacereco-api.herokuapp.com/getFaces', {
     method: 'put',
     headers: { 'Content-Type' : 'application/json' },
     body: JSON.stringify({

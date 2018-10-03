@@ -17,9 +17,7 @@ constructor(props){
 }
 
 onSubmitSignup = () => {
-  console.log(this.state);
-  
-  fetch('http://localhost:3001/signup', {
+  fetch('https://myfacereco-api.herokuapp.com/signup', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -28,9 +26,16 @@ onSubmitSignup = () => {
       name: this.state.signupName,
     })
   }).then((res) => {
-    console.log(res);
     if (res.status === 200) {
+      res.json().then(res => {
+        alert(res.response);
+      });
       this.props.onRouteChange('signin');
+    } else{
+      res.json().then(err => {
+        alert(err.err);
+      });
+      
     }
   })
 }

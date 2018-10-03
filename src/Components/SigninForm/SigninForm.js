@@ -16,24 +16,28 @@ constructor(props) {
 }
 
 onSubmitSignin = () => {
-  fetch('http://localhost:3001/signin', {
+  fetch('https://myfacereco-api.herokuapp.com/signin', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       email: this.state.signinEmail,
       password: this.state.signinPassword
     })
-  }).then((res) => res.json())
-  .then(user => {
-    console.log('signin: ', user);
-    if (user) {
-      this.props.loadUser(user);
-      this.props.onRouteChange('home');
+  }).then((res) => {
+    if (res.status === 200) {
+      res.json().then(res => {
+        console.log(res.user);
+        
+          this.props.loadUser(res.user);
+          this.props.onRouteChange('home');
+          alert(res.response);
+      });
     } else {
-      //add input validation
-      alert('Username or Password dont match')
+      res.json().then(res => {
+        alert(res.err);
+      });
     }
-  })
+  });
 }
 
 onEmailChange = (event) => {

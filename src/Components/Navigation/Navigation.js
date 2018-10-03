@@ -5,7 +5,6 @@ const Navigation = (props) => {
 
 
   const renderRoute = (route) => {
-    console.log('navi: ', route );
     switch (route) {
       case 'signin':
       return (

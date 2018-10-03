@@ -1,5 +1,5 @@
-import React from 'react'
-import './ImageUrlForm.css'
+import React from 'react';
+import './ImageUrlForm.css';
 
 const ImageUrlForm = ({ onInputChange, onButtonSubmit }) => {
   return (

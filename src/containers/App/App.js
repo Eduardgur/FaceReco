@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import Navigation from '../../components/Navigation/Navigation'
-import SigninForm from '../../components/SigninForm/SigninForm.js'
+import Navigation from '../../components/Navigation/Navigation';
+import SigninForm from '../../components/SigninForm/SigninForm.js';
 import SignupForm from '../../components/SignupForm/SignupForm.js'
-import ImageEngine from '../ImageEngine/ImageEngine.js'
+import ImageEngine from '../ImageEngine/ImageEngine.js';
 import Clarifai from 'clarifai';
 import './App.css';
-
-
 
 class App extends Component {
 

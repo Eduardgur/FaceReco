@@ -1,5 +1,6 @@
 import React from 'react';
-import './SigninForm.css'
+import './SigninForm.css';
+
 class LoginForm extends React.Component {
 
 constructor(props) {

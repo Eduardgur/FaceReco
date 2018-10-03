@@ -17,7 +17,7 @@ constructor(props){
 }
 
 onSubmitSignup = () => {
-  fetch('http://localhost:3001/signup', {
+  fetch('https://myfacereco-api.herokuapp.com/signup', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

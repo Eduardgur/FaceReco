@@ -17,8 +17,6 @@ constructor(props){
 }
 
 onSubmitSignup = () => {
-  console.log('state: ',this.state);
-  
   fetch('http://localhost:3001/signup', {
     method: 'post',
     headers: { 'Content-Type': 'application/json' },
@@ -28,7 +26,6 @@ onSubmitSignup = () => {
       name: this.state.signupName,
     })
   }).then((res) => {
-    console.log('res: ', res);
     if (res.status === 200) {
       res.json().then(res => {
         alert(res.response);

@@ -25,8 +25,9 @@ onSubmitSignin = () => {
   }).then((res) => {
     if (res.status === 200) {
       res.json().then(res => {
-        console.log('signin: ', res);
-          this.props.loadUser(res.user[0]);
+        console.log(res.user);
+        
+          this.props.loadUser(res.user);
           this.props.onRouteChange('home');
           alert(res.response);
       });

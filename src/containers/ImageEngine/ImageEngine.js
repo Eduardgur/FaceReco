@@ -1,8 +1,7 @@
 import React from 'react';
-import ImageUrlForm from '../../components/ImageUrlForm/ImageUrlForm'
-import Rank from '../../components/Rank/Rank'
-import FaceRecognition from '../../components/FaceRecognition/FaceRecognition'
-
+import ImageUrlForm from '../../components/ImageUrlForm/ImageUrlForm';
+import Rank from '../../components/Rank/Rank';
+import FaceRecognition from '../../components/FaceRecognition/FaceRecognition';
 
 const ImageEngine = (props) => {
 const { onInputChange, onButtonSubmit, image, boxs, user } = props;
